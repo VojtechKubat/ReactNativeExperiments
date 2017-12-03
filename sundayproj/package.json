@@ -1,0 +1,27 @@
+{
+	"name": "sundayproj",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"watch": "tsc -w",
+		"test": "jest"
+	},
+	"dependencies": {
+		"react": "16.0.0",
+		"react-native": "0.50.4"
+	},
+	"devDependencies": {
+		"@types/react": "^16.0.26",
+		"@types/react-native": "^0.50.7",
+		"babel-jest": "21.2.0",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "21.2.1",
+		"react-test-renderer": "16.0.0",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.2"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
