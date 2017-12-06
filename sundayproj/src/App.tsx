@@ -11,6 +11,8 @@ import {
   Text,
   View
 } from 'react-native';
+import Component1 from './components/component1/component1';
+// import ButtonComp from './components/buttoncomponent/buttoncomponent';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -23,8 +25,10 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
+        <Component1 message="Hello world" />
+        {/* <ButtonComp message="Hello">; */}
         <Text style={styles.welcome}>
-          It works!!!
+          It works
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js
