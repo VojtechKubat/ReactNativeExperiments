@@ -3,7 +3,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
+  TouchableHighlight
 } from 'react-native';
 
 import { AppRegistry } from 'react-native';
@@ -26,15 +28,25 @@ export default class Component1 extends Component<MyProps, MyState> {   // inter
         super(props, state);
     }
 
+    static defaultProps: MyProps = {
+        message : "n/a"
+    }
+
+    tapped() {
+        console.log("button tapped");
+    }
+
     render() {
         return (
             <View>
                 <Text style={styles.welcome}>
                 Comp1 prop - {this.props.message}
                 </Text>
+                
                 <Text style={styles.welcome}>
                     Comp1 state - {this.state.name}
                 </Text>
+                <Button title="Click me" onPress={this.tapped}/>
             </View>
         );
     }
