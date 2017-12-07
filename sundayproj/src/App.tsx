@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 import Component1 from './components/component1/component1';
+import MyTextfield from './components/myTextField/MyTextfied';
+import ThreadList from './ThreadList/ThreadList'
 // import ButtonComp from './components/buttoncomponent/buttoncomponent';
 
 const instructions = Platform.select({
@@ -24,19 +26,22 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
-        <Component1 message="Hello world" />
-        {/* <ButtonComp message="Hello">; */}
+      // <View style={styles.container}>
+      <ThreadList />
+        {/* <Component1 message="Hello world" />
+        <ButtonComp message="Hello">;
         <Text style={styles.welcome}>
           It works
         </Text>
+        <MyTextfield />
+
         <Text style={styles.instructions}>
           To get started, edit App.js
         </Text>
         <Text style={styles.instructions}>
           {instructions}
-        </Text>
-      </View>
+        </Text> */}
+      // </View>
     );
   }
 }

@@ -8,8 +8,6 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-import { AppRegistry } from 'react-native';
-
 export interface MyProps {        // there needs to be defined interface of all properties
                                 // it has to be exported, so parent typescript object knows its type
     message: string;
@@ -42,11 +40,14 @@ export default class Component1 extends Component<MyProps, MyState> {   // inter
                 <Text style={styles.welcome}>
                 Comp1 prop - {this.props.message}
                 </Text>
-                
-                <Text style={styles.welcome}>
-                    Comp1 state - {this.state.name}
-                </Text>
-                <Button title="Click me" onPress={this.tapped}/>
+                <TouchableHighlight underlayColor = "blue">
+                    <Text style={styles.welcome}>
+                        Comp1 state - {this.state.name}
+                    </Text>
+                </TouchableHighlight>
+                <Button title="Click me"
+                onPress={this.tapped}
+                />
             </View>
         );
     }
