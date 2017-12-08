@@ -26,22 +26,9 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   render() {
     return (
-      // <View style={styles.container}>
-      <ThreadList />
-        {/* <Component1 message="Hello world" />
-        <ButtonComp message="Hello">;
-        <Text style={styles.welcome}>
-          It works
-        </Text>
-        <MyTextfield />
-
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text> */}
-      // </View>
+      <View style = {styles.container}>
+        <ThreadList dummyProp = "Hello" />
+      </ View>
     );
   }
 }
