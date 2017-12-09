@@ -36,7 +36,7 @@ export default class App extends Component<{}> {
           {instructions
           }
         </Text>
-        <Text>{multiply(12, 'a')}</Text>
+        <Text>{multiply(12, 12)}</Text>
       </View>
     );
   }
