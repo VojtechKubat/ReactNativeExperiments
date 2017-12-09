@@ -1,6 +1,4 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
  * @flow
  */
 
@@ -19,19 +17,26 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+// just testing flow type-checker
+function multiply(n1: number, n2: number): number {
+  return n1*n2;
+}
+
 export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+          Hello world!
+        </Text>  
         <Text style={styles.instructions}>
           To get started, edit App.js
         </Text>
         <Text style={styles.instructions}>
-          {instructions}
+          {instructions
+          }
         </Text>
+        <Text>{multiply(12, 'a')}</Text>
       </View>
     );
   }
@@ -49,9 +54,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
+  instructions: {    
+
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
   },
-});
+});;
