@@ -12,29 +12,17 @@ import {
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';          // importing index.js, so it is not necessary to specify the filename
+
+import Router from './Router';
  
 import Header from './components/common/Header';
-import ThreadList from './ThreadList';
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1 ,
-      // justifyContent: 'center',
-      // alignItems: 'center',
-      height: '100%',
-      width: '100%',
-      backgroundColor: '#F5FCFF',  
-    }
-});
+import ThreadList from './components/ThreadList';
 
 export default class ImoApp extends Component<{}> {
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <View style={{ flex: 1 }}>
-          <Header headerTitle="ImoApp" />
-          <ThreadList />
-        </View>
+        <Router />
       </Provider>
     );
   }

@@ -3,7 +3,7 @@ import { View, Text, ListView } from 'react-native';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import ListItem from './components/ListItem'
+import ListItem from './ListItem'
 
 class ThreadList extends Component {
 
