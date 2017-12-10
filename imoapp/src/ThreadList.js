@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ListView } from 'react-native';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
-import Thread from './Thread';
+import ListItem from './components/ListItem'
 
 class ThreadList extends Component {
-
-    state = {
-        // albums: []
-        threads : []
-    };
 
     componentWillMount () {
         // axios.get("https://rallycoding.herokuapp.com/api/music_albums")
@@ -17,23 +13,38 @@ class ThreadList extends Component {
         //         this.setState({ albums: response.data });
         //     }
         // );
+
+        const ds = new ListView.DataSource({ 
+            rowHasChanged: (r1, r2)=> r1 !== r2
+        });
+        this.dataSource = ds.cloneWithRows(this.props.allThreads);
     }
 
-    renderAlbums() {
-        return this.state.albums.map(album => {
-            return (<Thread key={album.title} album={album} />);
-        });
+    renderRow(thread) {
+        // return (<View>
+        //     <Text>{thread.title}</Text>
+        // </View>);
+        return <ListItem thread={thread} />
     }
 
     render() {
+        console.log(this.props)
         return (
             <View>
-                <Text>Thread list component</Text>
-                {/* <Text>Count of albums = {this.state.albums.length}</Text>
-                {this.renderAlbums()} */}
+                <ListView 
+                dataSource={this.dataSource}
+                renderRow={this.renderRow}
+                />
             </View>
         );
     }
+
+    
 };
 
-export default ThreadList;
+const mapStateToProps = (reduxState) => {
+    return { allThreads: reduxState.allThreads };
+};
+
+export default connect(mapStateToProps)(ThreadList);       // connecting redux to this component
+// export default ThreadList;

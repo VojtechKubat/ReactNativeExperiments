@@ -12,7 +12,7 @@ import {
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';          // importing index.js, so it is not necessary to specify the filename
-
+ 
 import Header from './components/common/Header';
 import ThreadList from './ThreadList';
 
@@ -31,9 +31,9 @@ export default class ImoApp extends Component<{}> {
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <View>
+        <View style={{ flex: 1 }}>
           <Header headerTitle="ImoApp" />
-          
+          <ThreadList />
         </View>
       </Provider>
     );
