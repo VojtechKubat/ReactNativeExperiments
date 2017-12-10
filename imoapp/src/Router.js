@@ -1,7 +1,8 @@
 import React from 'react';
-import { Scene, Stack, Router } from 'react-native-router-flux';
+import { Scene, Stack, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import ThreadList from './components/ThreadList';
+import CreateThread from './components/CreateThread';
 
 const RouterComponent = () => {
     return (
@@ -11,7 +12,17 @@ const RouterComponent = () => {
                     <Scene key="login" component={LoginForm} title="Please login" initial/>
                 </Scene>
                 <Scene key="main">
-                    <Scene key="allThreads" component={ThreadList} title="All threads"/>
+                    <Scene 
+                        rightTitle="Add"
+                        onRight = {() => Actions.createThread()}
+                        key="allThreads" 
+                        component={ThreadList} 
+                        title="All threads"
+                        initial/>
+                    <Scene 
+                        key="createThread"
+                        title="New thread"
+                        component={CreateThread}/>
                 </Scene>
             </Scene>
 

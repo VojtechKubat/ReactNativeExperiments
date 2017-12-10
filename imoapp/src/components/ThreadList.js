@@ -38,8 +38,6 @@ class ThreadList extends Component {
             </View>
         );
     }
-
-    
 };
 
 const mapStateToProps = (reduxState) => {

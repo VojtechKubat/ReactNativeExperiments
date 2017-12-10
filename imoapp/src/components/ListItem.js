@@ -46,9 +46,13 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     item: {
-        marginTop: 5,
-        padding: 10,
-        backgroundColor: '#ddd'
+        marginTop: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 20,
+        paddingBottom: 20,
+        // padding: 10,
+        backgroundColor: '#ffff'
     }
 });
 
