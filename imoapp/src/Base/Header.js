@@ -1,15 +1,37 @@
 import React from 'react';
-import {  StyleSheet,Text } from 'react-native';
+import {  
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
 
 const styles = StyleSheet.create({
     header: {
-        fontSize: 40
+        fontSize: 20
+    },
+    headerContainter: {
+        backgroundColor: '#99C0FF',
+        paddingTop: 20,
+        height: 60,
+        justifyContent: 'center',       // this is vertical alignment (Affect the nested components - the content)
+        alignItems: 'center',            // this is horizontal alignment
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 2,
+        position: 'relative'
     }
 });
 
-const Header = () => {
+type Props = {
+    headerTitle: string
+};
+
+const Header = (props: Props) => {
     return (
-        <Text style={styles.header}>This is header</Text>
+        <View style={styles.headerContainter}>
+            <Text style={styles.header}>{props.headerTitle}</Text>
+        </View>
     );
 }
 

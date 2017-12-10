@@ -10,29 +10,25 @@ import {
 } from 'react-native';
 
 import Header from './Base/Header';
+import ThreadList from './ThreadList';
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+      flex: 1 ,
+      // justifyContent: 'center',
+      // alignItems: 'center',
+      height: '100%',
+      width: '100%',
       backgroundColor: '#F5FCFF',  
-    },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
+    }
 });
 
 export default class ImoApp extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Header />
+      <View>
+        <Header headerTitle="ImoApp" />
+        <ThreadList />
       </View>
     );
   }
