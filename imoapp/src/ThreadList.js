@@ -46,5 +46,5 @@ const mapStateToProps = (reduxState) => {
     return { allThreads: reduxState.allThreads };
 };
 
-export default connect(mapStateToProps)(ThreadList);       // connecting redux to this component
+export default connect(mapStateToProps)(ThreadList);       // connecting redux to this component; mapping state from redux to the state of component
 // export default ThreadList;
