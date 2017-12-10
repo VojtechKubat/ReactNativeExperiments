@@ -11,6 +11,8 @@ import {
   TextInput
 } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
 export default class LoginForm extends Component<{}> {
 
   login() {
-
+    Actions.main();
   }
 
   render() {
