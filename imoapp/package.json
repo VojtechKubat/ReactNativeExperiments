@@ -10,7 +10,7 @@
     "axios": "^0.17.1",
     "react": "16.0.0",
     "react-native": "0.51.0",
-    "reactive-redux": "^1.1.0",
+    "react-redux": "^5.0.6",
     "redux": "^3.7.2"
   },
   "devDependencies": {

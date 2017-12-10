@@ -9,7 +9,11 @@ import {
   View
 } from 'react-native';
 
-import Header from './Base/Header';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';          // importing index.js, so it is not necessary to specify the filename
+
+import Header from './components/common/Header';
 import ThreadList from './ThreadList';
 
 const styles = StyleSheet.create({
@@ -26,10 +30,12 @@ const styles = StyleSheet.create({
 export default class ImoApp extends Component<{}> {
   render() {
     return (
-      <View>
-        <Header headerTitle="ImoApp" />
-        <ThreadList />
-      </View>
+      <Provider store={createStore(reducers)}>
+        <View>
+          <Header headerTitle="ImoApp" />
+          
+        </View>
+      </Provider>
     );
   }
 }

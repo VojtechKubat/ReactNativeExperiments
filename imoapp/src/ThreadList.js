@@ -7,20 +7,16 @@ import Thread from './Thread';
 class ThreadList extends Component {
 
     state = {
-        albums: []
-        // threads : [];
+        // albums: []
+        threads : []
     };
 
     componentWillMount () {
-        console.log(">>> ThradList - componentWillMount");
-
-        axios.get("https://rallycoding.herokuapp.com/api/music_albums")
-        .then(response => {
-            // console.log(response);
-            // this.state.albums = response.data;
-            this.setState({ albums: response.data });
-        }
-        );
+        // axios.get("https://rallycoding.herokuapp.com/api/music_albums")
+        //     .then(response => {
+        //         this.setState({ albums: response.data });
+        //     }
+        // );
     }
 
     renderAlbums() {
@@ -33,8 +29,8 @@ class ThreadList extends Component {
         return (
             <View>
                 <Text>Thread list component</Text>
-                <Text>Count of albums = {this.state.albums.length}</Text>
-                {this.renderAlbums()}
+                {/* <Text>Count of albums = {this.state.albums.length}</Text>
+                {this.renderAlbums()} */}
             </View>
         );
     }
