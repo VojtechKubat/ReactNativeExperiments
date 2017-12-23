@@ -16,11 +16,11 @@ export default class CreateThread extends Component {
 
     
         // Toggle the state every second
-        setInterval(() => {
-          this.setState(previousState => {
-            return { showText: !previousState.showText };
-          });
-        }, 1000);
+        // setInterval(() => {
+        //   this.setState(previousState => {
+        //     return { showText: !previousState.showText };
+        //   });
+        // }, 1000);
         
     }
 
@@ -31,7 +31,7 @@ export default class CreateThread extends Component {
 
     renderButton(){
         if (this.state.processing) {
-            return ( <Spinner size='small'/> );
+            return ( <Spinner size='large'/> );
         }
 
         return (
@@ -62,10 +62,13 @@ export default class CreateThread extends Component {
                     />
                 </CardSection>
 
-                {/* <CardSection style={{ height: 50 }}> */}
+                <CardSection>
+                    <View style={{ height: 100 }}>
                     {this.renderButton()}
                         {/* ther is 'bind' because it is called asynchronously, so we pass 'this' and the current state of 'this' to the helper function - the function will get a kind of snapshot of the state in the time, when the button is pressed - atomicity */}
-                {/* </CardSection> */}
+
+                    </View>
+                </CardSection>
             </Card>  
         );
     }
