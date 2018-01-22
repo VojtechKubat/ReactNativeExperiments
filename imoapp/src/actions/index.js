@@ -10,7 +10,7 @@ export const selectThread = (threadId) => {
 
 export const createThread = (threadDetails) => {
     return {
-        type: 'select_thread',
-        payload: threadId
+        type: 'create_thread',
+        payload: threadDetails
     };
 };
