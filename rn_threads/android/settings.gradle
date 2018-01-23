@@ -1,3 +1,0 @@
-rootProject.name = 'rn_threads'
-
-include ':app'
