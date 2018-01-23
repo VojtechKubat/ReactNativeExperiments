@@ -23,7 +23,7 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
 
-  state = { messages: [] }
+  state = { messages: [], count: 0 }
 
   threads = [];
 
@@ -36,11 +36,22 @@ export default class App extends Component<{}> {
 
   createThread() {
     var th = new Thread('./worker.thread.js');
+    th.onmessage = this.handleMessage;
+    this.threads.push(th);
+
+    this.setState(state => {
+      return { count: this.state.count+1 };
+    });
   }
 
   componentWillUnmount() {
     this.workerThread.terminate();
     this.workerThread = null;
+
+    for (var i=0; i < this.threads.length; i++) {
+      this.threads[i].terminate();
+      this.threads[i] = null;
+    }
   }
 
   handleMessage = message => {
@@ -57,14 +68,31 @@ export default class App extends Component<{}> {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit App.js
+          Count of threads = {this.state.count}
         </Text>
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-        <Button title="Send Message To Worker Thread" onPress={() => {
-          this.workerThread.postMessage('Hello')
+        <Button title="Create thread" onPress={() => {
+          // this.workerThread.postMessage('Hello')
+          this.createThread();
         }} />
+        <Button title="Send msg to all" onPress={() => {
+          for (var i=0; i < this.threads.length; i++) {
+            this.threads[i].postMessage('Hello');
+          }
+        }} />
+        <Button title="Terminate and clear all" onPress={() => {
+          for (var i=0; i < this.threads.length; i++) {
+            this.threads[i].terminate();
+            this.threads[i] = null;
+          }
+          this.threads = [];
+          this.setState(state => {
+            return { messages: [], count: 0 };
+          });
+        }} />
+
         <View>
           <Text>Messages:</Text>
           {this.state.messages.map((message, i) => <Text key={i}>{message}</Text>)}
